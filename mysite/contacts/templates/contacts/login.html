@@ -1,0 +1,11 @@
+<form action="{% url 'contacts:login' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Log In" />
+</form>
+
+<form action="{% url 'contacts:newUser' %}" method="get">
+    {% csrf_token %}
+    <input type="submit" value="New User" />
+</form>
+

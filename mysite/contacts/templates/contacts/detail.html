@@ -1,0 +1,16 @@
+{% if contact %}
+    <ul>
+        <h1>{{ contact.first_name }} {{ contact.last_name }} </h1>
+        <p>Phone number: {{ contact.phone_number }} </p>
+        <p>Email: {{ contact.email_address }} </p>
+        <p>Address: {{ contact.street_address }} </p>
+    </ul>
+{% else %}
+    <p>No contact with the given id could be found.</p>
+{% endif %}
+
+<form action="{% url 'contacts:detail' contact.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Delete Me" />
+</form>

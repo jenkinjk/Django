@@ -1,0 +1,26 @@
+{% if contacts_list %}
+    <ul>
+    {% for contact in contacts_list %}
+        <li><a href="{% url 'contacts:detail' contact.id %}">{{ name }} {{ contact.first_name }} {{ contact.last_name }} </a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No contacts are available.</p>
+{% endif %}
+
+<form action="{% url 'contacts:new' %}" method="get">
+<input type="submit" value="New Contact" />
+{% csrf_token %}
+</form>
+
+<form action="{% url 'contacts:viewAll' %}" method="get">
+<input type="submit" value="View All" />
+</form>
+
+<form action="{% url 'contacts:search' %}" method="get">
+<input type="submit" value="search" />
+</form>
+
+<form action="{% url 'contacts:logout' %}" method="get">
+<input type="submit" value="Logout" />
+</form>

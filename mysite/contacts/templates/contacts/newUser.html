@@ -1,0 +1,7 @@
+<h1>Create a new User:</h1>
+<form action="{% url 'contacts:newUser' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="New User" />
+</form>
+

@@ -1,0 +1,13 @@
+{% if contacts_list %}
+    <ul>
+    {% for contact in contacts_list %}
+        <h1>{{ contact.first_name }} {{ contact.last_name }} </h1>
+        <p>Phone number: {{ contact.phone_number }} </p>
+        <p>Email: {{ contact.email_address }} </p>
+        <p>Address: {{ contact.street_address }} </p>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No contacts are available.</p>
+{% endif %}
+
